@@ -47,7 +47,7 @@ if (inputImg !== null) {
 	});
 }
 
-let baseURL = "https://springboot-blog-application-production.up.railway.app";
+let baseURL = "https://travel-blog-spring-boot-production.up.railway.app";
 // let baseURL = "http://localhost:8080";
 let deleteURL = "";
 let accentColor = "#0dcaf0";
