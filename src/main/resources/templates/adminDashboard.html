@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{base :: header}"></head>
+
+<body>
+
+	<div th:insert="~{base :: navbar}"></div>
+	<div th:insert="~{base :: modal}"></div>
+	<div class="container-fluid p-4 body-section">
+		<div class="container my-3" style="max-width: 60rem;">
+			<p class="fw-bold fs-4 text-start">List of users</p>
+			<div class="overflow-auto" style="height: 200px">
+				<table class="table border table-hover">
+					<thead class="bg-light">
+						<tr>
+							<th scope="col">Profile Pic</th>
+							<th scope="col">Email</th>
+							<th scope="col">Name</th>
+							<th scope="col">Role</th>
+							<th scope="col">Action</th>
+						</tr>
+					</thead>
+					<tbody th:each="user:${users}">
+						<tr>
+							<td>
+								<a th:href="@{'/posts/profile/'+${user.id}+'/page/0/#user-profile'}">
+									<img th:src="'/posts/image/'+${user.profilePicture}" class="rounded-circle" style="width: 2rem; height: 2rem">
+								</a>
+							</td>
+							<td th:text="${user.email}"></td>
+							<td th:text="${user.firstName}+' '+${user.lastName}"></td>
+							<td th:if="${user.role.equals('Admin')}" class="text-success">ADMIN</td>
+							<td th:if="${user.role.equals('User')}" class="text-primary">USER</td>
+							<td th:if="${user.role.equals('Admin')}">-</td>
+							<td th:if="${user.role.equals('User')}">
+								<button class="btn btn-sm btn-danger fw-bold rounded-0" data-bs-toggle="modal" data-bs-target="#exampleModal"
+									onclick="confirmDelete(this)" th:name="@{'/users/delete/'+${user.id}}">
+										Delete
+								</button>
+							</td>
+						</tr>
+					</tbody>
+					<tbody th:if="${users.size()==0}">
+						<tr>
+							<td class="text-primary">User list is currently empty!</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</div>
+			</table>
+			</div>
+			<br>
+			
+			<p class="fw-bold fs-4 text-start">List of categories</p>
+			<div class="overflow-auto" style="height: 200px">
+				<table class="table border table-hover">
+					<thead class="bg-light">
+						<tr>
+							<th scope="col">Category name</th>
+							<th scope="col">No. of posts</th>
+							<th scope="col">Action</th>
+						</tr>
+					</thead>				
+					<tbody th:each="category:${categories}">
+						<tr>
+							<td th:text="${category.categoryName}"></td>
+							<td th:text="${category.posts.size()}"></td>
+							<td>
+								<button class="btn btn-sm btn-danger fw-bold rounded-0" data-bs-toggle="modal" data-bs-target="#exampleModal"
+									onclick="confirmDelete(this)" th:name="@{'/categories/delete/'+${category.id}}">
+									Delete
+								</button>
+							</td>
+						</tr>
+					</tbody>
+					
+					<tbody th:if="${categories.size()==0}">
+						<tr>
+							<td class="text-primary">Category list is currently empty!</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<br>
+			
+			<p class="fw-bold fs-4 text-start">List of posts</p>
+			<div class="overflow-auto" style="height: 200px">
+				<table class="table border table-hover">
+					<thead class="bg-light">
+						<tr>
+							<th scope="col">Title</th>
+							<th scope="col">Image</th>
+							<th scope="col">Creator</th>
+							<th scope="col">Action</th>
+						</tr>
+					</thead>				
+					<tbody th:each="post:${posts}">
+						<tr>
+							<td th:text="${post.title.length()<50 ? post.title : post.title.substring(0, 50)+'..'}"></td>
+							<td><img th:src="'/posts/image/'+${post.imageName}" class="rounded-1" style="width: 2rem; height: 2rem"></td>
+							<td th:text="${post.user.firstName+' '+post.user.lastName}"></td>
+							<td>
+								<button class="btn btn-sm btn-danger fw-bold rounded-0" data-bs-toggle="modal" data-bs-target="#exampleModal"
+									onclick="confirmDelete(this)" th:name="@{'/posts/delete2/'+${post.id}}">
+									Delete
+								</button>
+							</td>
+						</tr>
+					</tbody>
+					
+					<tbody th:if="${posts.size()==0}">
+						<tr>
+							<td class="text-primary">Post list is currently empty!</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+
+		</div>
+	</div>
+	<div th:insert="~{base :: footer}"></div>
+	<div th:insert="~{base :: js-links}"></div>
+</body>
+</html>

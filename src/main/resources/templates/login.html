@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{base :: header}"></head>
+
+<body>
+
+	<div th:insert="~{base :: navbar}"></div>
+	
+	<div th:if="${param.logout}" class="alert alert-warning alert-dismissible fade show mx-0 mt-3 rounded-0">
+		<strong>You have been logged out.</strong>
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
+	<div class="container-fluid p-4 body-section">			
+		<div class="container-fluid d-flex justify-content-center mt-5">
+			<form action="#" th:action="@{/login}" method="post" class="border p-3 mb-5 rounded-0" style="width:25rem">
+			 <p class="fs-2 fw-bold">Login</p>
+			 <p th:if="${param.error}" class="fs-6 fw-bold text-danger">Invalid credentials. Try again.</p>
+			 <hr>
+				<div class="mb-2">
+					<label class="fs-5 fw-normal p-0">Email ID</label>
+					<input type="email" class="form-control fw-light rounded-0 py-2" name="username" id="email" placeholder="Enter your email Id" required>
+				</div>
+				<div class="mb-4">
+					<label class="fs-5 fw-normal p-0">Password</label>
+					<input type="password" class="form-control fw-light rounded-0 py-2" name="password" id="password" placeholder="Enter your password" required>
+				</div>
+				<div>
+					<input type="submit"  class="rounded-0 fs-5 fw-bold" style="width:100%" value="Login">	
+				</div>
+			</form>		
+		</div>
+	</div>
+	<div th:insert="~{base :: js-links}"></div>
+	<div th:insert="~{base :: footer}"></div>
+</body>
+</html>

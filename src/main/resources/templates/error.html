@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{base :: header}"></div>
+
+<body>
+	<div th:insert="~{base :: navbar}"></div>
+	<div class="container-fluid body-section p-4 text-center">
+	    <h1>:-(</h1>
+	    <p class="text-danger fs-5">Something went wrong and we couldn't complete your request.</p>
+	    <a href="/">Go back to home page</a>
+	</div>
+	<div th:insert="~{base :: footer}"></div>
+	<div th:insert="~{base :: js-links}"></div>
+</body>
+</html>

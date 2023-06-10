@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{base :: header}"></head>
+
+<body>
+	<div th:insert="~{base :: navbar}"></div>
+	<div th:insert="~{base :: modal}"></div>
+
+	<div class="container-fluid mt-3 p-0">
+		<img id="homepage-image" alt="" src="https://hips.hearstapps.com/elleit.h-cdn.co/assets/17/10/1488888309-15-travel-blogger-da-seguire-su-instagram.jpg">
+		<div id="todays-date"></div>
+		<div class="searchbar">
+			<div class="d-flex justify-content-center">
+				<form action="#" th:action="@{/posts/search/#travel-stories}"
+					method="post" class="d-flex">
+					<input class="form-control rounded-0 text-center border-warning px-3 py-2" type="search" name="keyword" placeholder="Search places by keyword" required>
+					<button class="btn btn-warning text-light fw-bold rounded-0 d-flex p-2"type="submit">
+						<i class="fa fa-search me-2 fs-5" aria-hidden="true"></i> Explore
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid p-4 body-section">
+		<div id="travel-destinations" class="text-center" th:if="${userProfile==null}">
+			<p class="fs-4 fw-bold">Popular Travel Destinations</p>
+			<hr class="mx-auto" style="width: 20rem">
+			<div class="scrollmenu">
+				<span th:each="category : ${categories}" class="category"> 
+				<a th:href="@{'/posts/category/'+${category.id}+'/page/0'+'/#travel-stories'}" class="text-decoration-none">
+					<button th:if="${baseURL!=null && baseURL.contains({category.id+''})}" class="btn btn-info text-light rounded-0 px-3 py-2" th:text="${category.categoryName.toUpperCase()}"></button>
+					<button th:if="${baseURL!=null && baseURL.contains({category.id+''})==false}" class="btn-category rounded-0 px-3 py-2" th:text="${category.categoryName.toUpperCase()}" ></button>
+				</a>
+				</span>
+			</div>
+		</div>
+
+		<div id="user-profile" th:if="${userProfile!=null}" class="container-fluid pt-3">
+			<div class="d-flex justify-content-center">
+				<div class="card border-0 p-2 mb-1 me-1 rounded" style="width: 10rem; height: 10rem">
+					<img th:src="'/posts/image/'+${userProfile.profilePicture}" class="card-img-top border-dark" alt="..." style="border-radius: 50%">
+				</div>
+				<div class="card border-0 mb-1 rounded" style="width: 15em; height: 10rem">
+					<div class="card-body">
+						<p class="card-text fw-normal fs-5"
+							th:text="${userProfile.firstName}+' '+${userProfile.lastName}"></p>
+						<hr>
+						<label class="card-text fw-light" th:text="'Email: '+${userProfile.email}"></label><br>
+						<label class="card-text fw-light" th:text="'Followers : '+${userProfile.followers.size()+', '}"></label>
+						<label class="card-text fw-light" th:text="'Following : '+${userProfile.following.size()}"></label><br>
+						<label class="card-text fw-light" th:text="'Total Posts : '+${userProfile.posts.size()}"></label>
+					</div>
+				</div>
+			</div>
+			<div class="d-flex justify-content-center" th:if="${userProfile.aboutInfo}">
+				<div class="card border-0 mb-0 rounded" style="width: 25.3em;">
+					<div class="card-body">
+						<p class="fs-5 fw-normal mb-0">About Me</p>
+						<p class="card-text fw-light text-secondary" th:text="${userProfile.aboutInfo}"></p>
+					</div>
+				</div>
+			</div>
+			<div sec:authorize="isAuthenticated()" class="d-flex justify-content-center" th:if="${#authentication.getPrincipal().getUsername().equals(userProfile.email)==false && isAFollower==false}">
+				<a th:href="'/user/follow/'+${#authentication.getPrincipal().getUserId()}+'/'+${userProfile.id}" class="btn btn-primary rounded-0 fw-bold"><i class="fa fa-bell"></i> Follow</a>
+			</div>
+			<div sec:authorize="isAuthenticated()" class="d-flex justify-content-center" th:if="${#authentication.getPrincipal().getUsername().equals(userProfile.email)==false && isAFollower}">
+				<a th:href="'/user/unfollow/'+${#authentication.getPrincipal().getUserId()}+'/'+${userProfile.id}" class="btn btn-danger rounded-0 fw-bold"><i class="fa fa-times"></i> Unfollow</a>
+			</div>
+		</div>
+		
+		<div th:if="${userProfile!=null}" class="container-fluid d-flex justify-content-center">
+			<div class="card border-0 rounded-0 p-3 m-2" style="width: 20em;">
+				<b class="card-text text-center">Followers</b>
+				<hr>
+				<div class="overflow-auto" style="height: 150px">
+					<div class="card-body" th:each="follower : ${userProfile.followers}">
+						<div class="d-flex">
+							<span>
+								<a th:href="@{'/posts/profile/'+${follower.from.id}+'/page/0/#user-profile'}">
+									<img alt="" th:src="'/posts/image/'+${follower.from.profilePicture}" class="m-2" style="width: 45px; border-radius: 50%">
+								</a>
+							</span>
+							<span>
+								<b th:text="${follower.from.firstName+' '+follower.from.lastName}"></b>
+								<label th:text="${follower.from.email}"></label>
+							</span>
+						</div>
+					</div>
+					<div class="card-body" th:if="${userProfile.followers.size()==0}">
+						<label>No followers</label>
+					</div>
+				</div>
+			</div>
+			
+			<div class="card border-0 rounded-0 p-3 m-2" style="width: 20em;">
+				<b class="card-text text-center ">Following</b>
+				<hr>
+				<div class="overflow-auto" style="height: 150px">
+					<div class="card-body" th:each="following : ${userProfile.following}">
+						<div class="d-flex">
+							<span>
+								<a th:href="@{'/posts/profile/'+${following.to.id}+'/page/0/#user-profile'}">
+									<img alt="" th:src="'/posts/image/'+${following.to.profilePicture}" class="m-2" style="width: 45px; border-radius: 50%">
+								</a>
+							</span>
+							<span>
+								<b th:text="${following.to.firstName+' '+following.to.lastName}"></b>
+								<label th:text="${following.to.email}"></label>
+							</span>
+						</div>
+					</div>
+					<div class="card-body" th:if="${userProfile.following.size()==0}">
+						<label>No following</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div id="travel-stories" class="container-fluid text-center p-5 pb-2">
+			<p class="fs-4 fw-bold">Featured Travel Stories</p>
+			<hr class="mx-auto " style="width: 20rem;">
+			<div sec:authorize="isAuthenticated()" th:if="${userProfile==null && fromFollowing==null}">
+				<a href="/#travel-destinations" class="btn btn-info text-light text-decoration-none link-secondary rounded-0 me-1">All posts</a>
+				<a href="/posts/following/page/0/#travel-destinations" class="btn btn-light text-decoration-none link-secondary rounded-0">From my following</a>
+			</div>
+			<div sec:authorize="isAuthenticated()" th:if="${userProfile==null && fromFollowing==true}">
+				<a href="/#travel-destinations" class="btn btn-light text-decoration-none link-secondary rounded-0 me-1">All posts</a>
+				<a href="/posts/following/page/0/#travel-destinations" class="btn btn-info text-light text-decoration-none link-secondary rounded-0">From my following</a>
+			</div>	
+		</div>
+
+		<div class="row justify-content-center" id="main-content">
+			<div class="card m-3 p-0 border-0 rounded-0 bg-light" style="width: 23rem" th:each="post : ${posts}">
+				<a th:href="@{'/posts/'+${post.id}}"
+					class="text-decoration-none hover-slide link-dark"> 
+					<div class="p-2">
+						<img th:src="'/posts/image/'+${post.imageName}"
+						style="height: 13rem" class="card-img-top rounded-0">
+					</div>
+										
+					<div class="card-body text-center my-0">
+						<p class="fw-bold fs-6" th:text="${post.title}"></p>
+						<p class="fw-light" th:text="${post.shortDesc.length()>=180 ? post.shortDesc.substring(0, 180)+'...' : post.shortDesc}" style="font-size: 13px"></p>
+					</div>
+				</a>
+			</div>
+			
+			<div th:if="${posts.size()==0}" class="text-center text-danger">
+				<img alt=""
+					src="https://www.excess2sell.com/images/product-error2.png" style="width: 25rem">
+			</div>
+		</div>
+
+		<div class="container d-flex justify-content-center mt-3" th:if="${pagination}">
+		
+			<ul class="pagination">
+				<li class="page-item" th:if="${pageNo > 0}"><a
+					class="page-link rounded-0"
+					th:href="@{${baseURL}+'/page/'+${pageNo-1}+'/#travel-stories'}">Previous</a>
+				</li>
+				<li class="page-item disabled" th:if="${pageNo==0}"><a
+					class="page-link rounded-0" href="#">Previous</a></li>
+
+				<span th:if="${totalPages > 0}" th:each="i:${#numbers.sequence(1,totalPages)}">
+					<li class="page-item">
+						<a class="page-link rounded-0" 
+							th:href="@{${baseURL}+'/page/'+${i-1}+'/#travel-stories'}" th:text="${i}">
+						</a>
+					</li>
+				</span>
+
+				<li class="page-item " th:if="${isLast==false}"><a
+					class="page-link rounded-0"
+					th:href="@{${baseURL}+'/page/'+${pageNo+1}+'/#travel-stories'}">Next</a>
+				</li>
+
+				<li class="page-item disabled" th:if="${isLast==true}"><a
+					class="page-link rounded-0" href="#">Next</a></li>
+			</ul>
+		</div>
+	</div>
+	<div th:insert="~{base :: footer}"></div>
+	<div th:insert="~{base :: js-links}"></div>
+</body>
+</html>

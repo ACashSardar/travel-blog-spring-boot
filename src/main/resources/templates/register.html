@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{base :: header}"></head>
+
+<body>
+
+	<div th:insert="~{base :: navbar}"></div>
+	
+	<div class="container-fluid p-4 body-section">	
+		<div class="container-fluid d-flex justify-content-center my-3">	
+			<form action="#" th:action="@{/register}" th:object="${user}" method="post" enctype="multipart/form-data"
+				 class="border p-3 mb-5 rounded-0"  style="width:27rem">
+				<p class="fs-2 fw-bold">Sign Up</p>	
+				<p th:if="${param.error}" class="fs-6 fw-bold text-danger">Someone with this email address already exists!</p>
+				<hr>
+				<div class="mb-0 d-flex justify-content-between">
+					<span>
+						<p class="fs-5 fw-normal mb-0">First Name</p>
+						<input type="text" class="form-control rounded-0 mb-1 fw-light" th:field="*{firstName}" id="firstName" placeholder="Enter your First Name" required>
+						<p class="fs-5 fw-normal mb-0">Last Name</p>
+						<input type="text" class="form-control rounded-0 mb-1 fw-light" th:field="*{lastName}" id="lastName" placeholder="Enter your Last Name" required>
+					</span>
+					<span>
+						<img class="p-1 rounded-3" id="displayImg" style="width:9rem; height:9rem" alt="" src="/posts/image/default_profile_pic.jpg">
+					</span>
+				</div>
+				
+				<div class="mb-2">
+					<p class="fs-5 fw-normal mb-0">About Yourself</p>
+					<textarea class="form-control rounded-0 fw-light" rows="4" cols="40" th:field=*{aboutInfo} id="body" placeholder="Tell us something about yourself.." required></textarea>
+				</div>
+				
+				<div class="d-flex justify-content-between mb-2">
+					<span class="me-1">
+						<p class="fs-5 fw-normal mb-0">Email ID</p>
+						<input type="email" class="form-control rounded-0 fw-light" th:field="*{email}" id="email" placeholder="Enter your email Id" required>
+					</span>
+					<span>
+						<p class="fs-5 fw-normal mb-0">Password</p>
+						<input type="password" class="form-control rounded-0 fw-light" th:field="*{password}" id="password" placeholder="Enter your password" required>
+					</span>
+				</div>
+				
+				<div class="d-flex justify-content-between mb-4">
+					<span class="me-1" style="width: 49%">
+						<p class="fs-5 fw-normal mb-0">Profile Picture</p>
+						<input type="file" class="form-control rounded-0" name="profilePic" id="inputImg">
+					</span>
+					<span style="width: 49%"> 
+						<p class="fs-5 fw-normal mb-0">Select Role</p>
+			            <select  class="form-select rounded-0 mb-1 fw-light" th:field="*{role}" id="role" required>
+			              <option value="User">User</option>
+			              <option value="Admin">Admin</option>
+						</select>
+					</span>
+				</div>
+						
+				<div>
+					<input type="submit" class="rounded-0 fs-5 fw-bold" style="width:100%" value="Register">
+				</div>	
+			</form>	
+		</div>
+	</div>
+	<div th:insert="~{base :: footer}"></div>
+	<div th:insert="~{base :: js-links}"></div>
+</body>
+</html>

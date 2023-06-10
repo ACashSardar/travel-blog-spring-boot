@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{base :: header}"></head>
+
+<body>
+
+	<div th:insert="~{base :: navbar}"></div>
+	
+	<div class="container-fluid p-4 body-section">
+		<div class="container-fluid d-flex justify-content-center">		
+			<form action="#" th:action="@{/posts/new}" th:object="${post}" method="post" enctype="multipart/form-data" class="border p-3 my-2">
+				<p class="fs-2 fw-bold">Write a new post</p><hr>
+				<input type="hidden" th:field="*{user}" >
+				<input type="hidden" th:field="*{createdAt}">
+				<div class="row my-1">
+					<div class="col-md-4 col-sm-12">
+						<input type="text" class="form-control rounded-0 fw-light mb-1" th:field="*{title}" id="title" placeholder="Title goes here.." required>
+						<img id="displayImg" class="rounded-1 mb-1" style="width:100%;height:176px" alt="" src="/posts/image/default_post_pic.jpg">
+						<textarea class="form-control rounded-0 fw-light mb-1" rows="6" cols="80" th:field="*{shortDesc}" id="body" placeholder="Add a brief details.." required></textarea>
+					</div>
+					<div class="col-md-8 col-sm-12">
+						<textarea class="form-control rounded-0 fw-light mb-1" rows="8" cols="60" th:field="*{body}" id="body" placeholder="Whats in your mind ?" required></textarea>
+						<select class="form-select rounded-0 fw-light mb-1" name="catg" aria-label="Default select example">
+						  <span th:each="cat:${categories}">
+						  	<option th:value="${cat.categoryName}" th:text="${cat.categoryName}"></option>
+						  </span>
+						  	<option value="General">General</option>
+						</select>
+						<input type="text" class="form-control rounded-0 fw-light mb-1" name="newCatg" id="category" placeholder="Add a new travel destination">
+						<input type="file" class="form-control rounded-0 fw-light mb-1" name="image" id="inputImg" required>
+						<input type="submit" class="rounded-0 fs-6 fw-bold mt-1" style="width:100%" value="Submit Post">
+					</div>
+				</div>		
+			</form>	
+			<br>
+		</div>
+	</div>
+	<div th:insert="~{base :: js-links}"></div>
+	<div th:insert="~{base :: footer}"></div>
+</body>
+</html>
