@@ -196,6 +196,7 @@ public class PostController {
 		mv.addObject("likedPostsByUser", getLikedPostsByUser(principal));
 		mv.addObject("categories", categories);
 		mv.addObject("posts", posts);
+		mv.addObject("baseURL", "/posts/search");
 		mv.setViewName("home");
 		return mv;
 	}
