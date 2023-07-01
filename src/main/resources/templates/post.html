@@ -117,8 +117,7 @@
 				
 				<span sec:authorize="isAuthenticated()">
 					<form action="#" th:action="@{'/posts/comment/'+${post.id}+'/'+${#authentication.getPrincipal().getUserId()}}" method="post">
-						<input type="text" id="comment"
-							class="form-control mb-2 px-0 rounded-0 border-0 border-bottom border-secondary shadow-none"
+						<input type="text" id="comment" class="form-control mb-2 px-0 rounded-0 border-0 border-bottom border-secondary shadow-none"
 							name="comment" placeholder="Leave a comment.." required>
 						<div class="d-flex justify-content-end">
 							<label class="btn btn-outline-secondary fw-bold rounded-0 py-2 px-3 me-1" onclick="clearComment(this)">Cancel</label>
@@ -132,7 +131,7 @@
 		</div>
 
 		<div th:if="${recommendedPosts.size()>1}" class="mx-auto my-3"
-			style="max-width: 51rem">
+			style="max-width: 52rem">
 			<div class="px-2">
 				<h5 class="mx-auto">You may also like..
 					<i class="fa fa-star text-warning"></i>

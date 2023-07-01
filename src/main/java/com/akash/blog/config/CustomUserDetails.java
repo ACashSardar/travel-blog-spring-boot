@@ -16,6 +16,7 @@ public class CustomUserDetails implements UserDetails {
 	private String authority;
 	private String profilePicture;
 	private int userId;
+	private String fullname;
 
 	public CustomUserDetails(User user) {
 		this.username = user.getEmail();
@@ -23,6 +24,7 @@ public class CustomUserDetails implements UserDetails {
 		this.authority = user.getRole();
 		this.profilePicture = user.getProfilePicture();
 		this.userId = user.getId();
+		this.fullname = user.getFirstName() + " " + user.getLastName();
 	}
 
 	@Override
@@ -72,4 +74,7 @@ public class CustomUserDetails implements UserDetails {
 		return userId;
 	}
 
+	public String getFullname() {
+		return fullname;
+	}
 }

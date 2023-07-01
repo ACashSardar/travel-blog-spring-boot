@@ -7,15 +7,18 @@
 	<div th:insert="~{base :: modal}"></div>
 
 	<div class="container-fluid mt-3 p-0">
-		<img id="homepage-image" alt="" src="https://hips.hearstapps.com/elleit.h-cdn.co/assets/17/10/1488888309-15-travel-blogger-da-seguire-su-instagram.jpg">
-		<div id="todays-date"></div>
+		<img id="homepage-image" alt="" src="https://www.thetimes.co.uk/travel/wp-content/uploads/sites/6/2022/01/USE_Prague-Czech-Republic_Credit_GettyImages-1004440428.jpg?w=2200&h=880&crop=1">
+		<span sec:authorize="isAuthenticated()" id="welcome-msg" th:text="${'Welcome, '+#authentication.getPrincipal().getFullname()}"></span>
+		<span id="todays-date"></span>
 		<div class="searchbar">
 			<div class="d-flex justify-content-center">
 				<form action="#" th:action="@{/posts/search/#travel-stories}"
 					method="post" class="d-flex">
-					<input class="form-control rounded-0 text-center border-warning px-3 py-2" type="search" name="keyword" placeholder="Search places by keyword" required>
-					<button class="btn btn-warning text-light fw-bold rounded-0 d-flex p-2"type="submit">
-						<i class="fa fa-search me-2 fs-5" aria-hidden="true"></i> Explore
+					<input class="form-control text-center border-light px-3 py-2" type="search" name="keyword" placeholder="Type here to search places..." required 
+						style="border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 0px; border-bottom-right-radius: 0px">
+					<button class="btn btn-info text-light fw-bold d-flex py-2 px-3"type="submit"
+						style="border-top-left-radius: 0px; border-bottom-left-radius: 0px; border-top-right-radius: 20px; border-bottom-right-radius: 20px">
+						<i class="fa fa-search me-2 mt-1 fs-6" aria-hidden="true"></i> Explore
 					</button>
 				</form>
 			</div>
@@ -122,12 +125,12 @@
 			<p class="fs-4 fw-bold">Featured Travel Stories</p>
 			<hr class="mx-auto " style="width: 20rem;">
 			<div sec:authorize="isAuthenticated()" th:if="${userProfile==null && fromFollowing==null}">
-				<a href="/#travel-destinations" class="btn btn-info text-light text-decoration-none link-secondary rounded-0 me-1">All posts</a>
-				<a href="/posts/following/page/0/#travel-destinations" class="btn btn-light text-decoration-none link-secondary rounded-0">From my following</a>
+				<a href="/#travel-destinations" class="btn btn-info text-light text-decoration-none link-secondary rounded-0" style="font-family: Ubuntu; letter-spacing: 1px">All posts</a>
+				<a href="/posts/following/page/0/#travel-destinations" class="btn btn-light text-decoration-none link-secondary rounded-0" style="font-family: Ubuntu; letter-spacing: 1px">From my following</a>
 			</div>
 			<div sec:authorize="isAuthenticated()" th:if="${userProfile==null && fromFollowing==true}">
-				<a href="/#travel-destinations" class="btn btn-light text-decoration-none link-secondary rounded-0 me-1">All posts</a>
-				<a href="/posts/following/page/0/#travel-destinations" class="btn btn-info text-light text-decoration-none link-secondary rounded-0">From my following</a>
+				<a href="/#travel-destinations" class="btn btn-light text-decoration-none link-secondary rounded-0" style="font-family: Ubuntu; letter-spacing: 1px">All posts</a>
+				<a href="/posts/following/page/0/#travel-destinations" class="btn btn-info text-light text-decoration-none link-secondary rounded-0" style="font-family: Ubuntu; letter-spacing: 1px">From my following</a>
 			</div>	
 		</div>
 

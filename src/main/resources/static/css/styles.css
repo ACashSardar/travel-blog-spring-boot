@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@500&family=Comfortaa:wght@500&family=Dancing+Script&family=Fascinate&family=Fuzzy+Bubbles&family=Kanit:wght@200&family=Klee+One&family=Labrada:wght@200&family=Lato:wght@100&family=Lobster&family=Merriweather:wght@300&family=Nunito:wght@200&family=Pacifico&family=Poppins:wght@100&family=Roboto+Condensed:wght@300&family=Satisfy&family=Titillium+Web:wght@300&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@500&family=Comfortaa:wght@300&family=Dancing+Script&family=Fascinate&family=Fuzzy+Bubbles&family=Kanit:wght@200&family=Klee+One&family=Labrada:wght@200&family=Lato:wght@500&family=Lobster&family=Merriweather:wght@300&family=Nunito:wght@200&family=Pacifico&family=Poppins:wght@200&family=Roboto+Condensed:wght@300&family=Satisfy&family=Titillium+Web:wght@300&family=Ubuntu:wght@300&display=swap');
 @import url('https://fonts.cdnfonts.com/css/bahnschrift');
  
 :root{
@@ -8,8 +8,8 @@
 	--text-color:#333;
 	--nav-fg-color: #333;
 	--nav-text-shadow:cyan;
-	--primary-font: Nunito;
-	--secondary-font: Nunito;
+	--primary-font: Ubuntu;
+	--secondary-font: Ubuntu;
 }
 
 .body-section{
@@ -45,14 +45,23 @@ h2,h3,h4,h5,h6,li,a{
 	background: rgb(255,255,255,0.9);
 }
 
-#todays-date{
+#welcome-msg, #todays-date{
 	position:absolute;
-	top:20vh;
-	right: 20px;
-	font-size: 30px;
+	top:18vh;
+	font-size: 20px;
 	font-weight: bold;
 	color: white;
-	text-shadow: 2px 2px 2px grey;
+	background: rgb(0, 0, 0, 0.4);
+	padding: 5px 20px;
+	border-radius: 20px;
+	letter-spacing: 1px
+}
+
+#welcome-msg{
+	right: 20px;
+}
+#todays-date{
+	left: 20px;
 }
 
 ul{
@@ -71,6 +80,7 @@ ul li label{
 #homepage-image{
 	width: 100%; 
 	height: 88vh;
+	background-size: cover;
 }
 
 .navbar{
@@ -80,16 +90,20 @@ ul li label{
 
 .nav-item a{
 	color: #333;
-	font-size: 16px;
-	font-weight: light;
+	font-size: 15px;
+	font-weight: normal;
+	letter-spacing: 1px;
+}
+.nav-link{
+	margin-right: 10px;
 }
 
 .nav-link:hover,.nav-item a:hover{
 	transition:all 0.2s ease;
 	color: var(--second-accent-color);;
-	text-decoration: underline 5px;
+	text-decoration: underline 2px;
 	text-underline-position: under;
-	text-underline-offset: 28px;
+	text-underline-offset: 30px;
 }
 
 .scrollmenu {
@@ -110,6 +124,7 @@ ul li label{
 	background: white;
 	border: 1px solid lavender;
 	font-family: var(--primary-font);
+	letter-spacing: 1px;
 }
 
 .btn-category:hover{
@@ -159,8 +174,7 @@ input[type="submit"]:hover{
 .additional-info{
 	background: var(--main-accent-color);
 }
-
-table{
+.form-control ,textarea, table{
 	font-family: var(--secondary-font);
 }
 
@@ -200,15 +214,15 @@ footer ul a:hover {
 	#homepage-image{
 		height: 40vh;
 	}
-	#todays-date{
-		top:20vh;
+	#welcome-msg, #todays-date{
+		top:18vh;
 		font-size: 18px;
 	}	
 	.searchbar{
 		top:40vh;
 	}
 	.searchbar input {
-		font-size: 15px;
+		font-size: 13px;
 		padding: 5px 15px;
 	}
 	.nav-link:hover,.nav-item a:hover{
