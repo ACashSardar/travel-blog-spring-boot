@@ -6,7 +6,7 @@
 	<div th:insert="~{base :: navbar}"></div>
 	<div th:insert="~{base :: modal}"></div>
 
-	<div class="container-fluid mt-3 p-0">
+	<div class="container-fluid mt-2 p-0">
 		<img id="homepage-image" alt="" src="https://www.thetimes.co.uk/travel/wp-content/uploads/sites/6/2022/01/USE_Prague-Czech-Republic_Credit_GettyImages-1004440428.jpg?w=2200&h=880&crop=1">
 		<span sec:authorize="isAuthenticated()" id="welcome-msg" th:text="${'Welcome, '+#authentication.getPrincipal().getFullname()}"></span>
 		<span id="todays-date"></span>
@@ -14,7 +14,7 @@
 			<div class="d-flex justify-content-center">
 				<form action="#" th:action="@{/posts/search/#travel-stories}"
 					method="post" class="d-flex">
-					<input class="form-control text-center border-light px-3 py-2" type="search" name="keyword" placeholder="Type here to search places..." required 
+					<input class="form-control text-center border-info px-3 py-2" type="search" name="keyword" placeholder="Type here to search places..." required 
 						style="border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 0px; border-bottom-right-radius: 0px">
 					<button class="btn btn-info text-light fw-bold d-flex py-2 px-3"type="submit"
 						style="border-top-left-radius: 0px; border-bottom-left-radius: 0px; border-top-right-radius: 20px; border-bottom-right-radius: 20px">
