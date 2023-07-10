@@ -7,17 +7,28 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.akash.blog.service.CategoryService;
 import com.akash.blog.service.PostService;
+
 @RestController
-public class HomeController {
-	
+public class PageController {
+
 	@Autowired
 	PostService postService;
-	
+
 	@Autowired
 	CategoryService categoryService;
-	
+
 	@GetMapping("/")
 	public ModelAndView home() {
 		return new ModelAndView("redirect:/page/0");
-	}	
+	}
+
+	@GetMapping("/contact")
+	public ModelAndView contact() {
+		return new ModelAndView("contact");
+	}
+
+	@GetMapping("/about-us")
+	public ModelAndView about() {
+		return new ModelAndView("about");
+	}
 }

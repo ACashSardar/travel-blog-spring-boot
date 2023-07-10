@@ -22,11 +22,11 @@
 	<!-- Navigation bar -->
 	<div th:fragment="navbar">
 		<div class="navbar navbar-expand-lg px-4 py-2 fixed-top">
-			<span class="brand-name d-flex m-0 p-0 me-2"> 
+			<span class="brand-name d-flex m-0 p-0 me-1"> 
 				<img alt="" src="https://thumbs.dreamstime.com/b/icon-to-beach-sun-umbrella-shells-vector-illustration-41604139.jpg" class="me-2" style="width: 4rem; height: 4rem">
 			</span>
 			<span class="brand-name d-flex flex-column"> 
-				<a class=" text-decoration-none fs-3 fw-light mb-0" style="font-family: Lobster; letter-spacing: 3px; color: lightseagreen"> The Travel Blog</a> 
+				<a class=" text-decoration-none text-info fs-3 mb-0" style="font-family: Satisfy; letter-spacing: 3px;"> The Travel Blog</a> 
 				<a class="fw-light text-decoration-none link-dark ms-1" style="font-size: 12px;"> Travel stories & recommendations.</a>
 			</span>
 			<button class="navbar-toggler" type="button"
@@ -52,8 +52,8 @@
 						class="nav-link" th:href="@{'/login'}">LOG IN</a></li>
 					<li sec:authorize="isAnonymous()" class="nav-item"><a
 						class="nav-link" th:href="@{'/register'}">SIGN UP</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">CONTACT</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">ABOUT US</a></li>
+					<li class="nav-item"><a class="nav-link" href="/contact">CONTACT</a></li>
+					<li class="nav-item"><a class="nav-link" href="/about-us">ABOUT US</a></li>
 					<li sec:authorize="isAuthenticated()" class="nav-item d-flex">
 						<a class="nav-link" th:href="@{'/posts/profile/email/'+${#authentication.getPrincipal().getUsername()}}">
 							MY ACCOUNT

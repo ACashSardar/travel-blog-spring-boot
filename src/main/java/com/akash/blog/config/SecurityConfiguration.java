@@ -16,24 +16,24 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfiguration{
+public class SecurityConfiguration {
 
-	private static String [] WHITE_LIST= {"/","/login","/register","/posts/*","/posts/image/*","/posts/search/**",
-			"/posts/category/**","/posts/edit/*","/posts/update/*","/posts/comment/*/*","/posts/profile/**",
-			"/css/styles.css", "/js/main.js","/page/**","/h2-console/*",};
-	
-	private static String[] ADMIN_ACCESS= {"/dashboard/admin"};
-	
+	private static String[] WHITE_LIST = { "/", "/login", "/register", "/posts/*", "/posts/image/*", "/posts/search/**",
+			"/posts/category/**", "/posts/edit/*", "/posts/update/*", "/posts/comment/*/*", "/posts/profile/**",
+			"/contact", "/about-us", "/css/styles.css", "/js/main.js", "/page/**", "/h2-console/*" };
+
+	private static String[] ADMIN_ACCESS = { "/dashboard/admin" };
+
 	@Bean
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
+
 	@Bean
 	public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
 		return config.getAuthenticationManager();
 	}
-	
+
 	@Bean
 	public UserDetailsService userDetailsService() {
 		return new CustomUserDetailsService();
@@ -46,33 +46,14 @@ public class SecurityConfiguration{
 		authenticationProvider.setUserDetailsService(userDetailsService());
 		return authenticationProvider;
 	}
-	
+
 	@Bean
 	public SecurityFilterChain securityfilterChain(HttpSecurity http) throws Exception {
-		http
-			.headers()
-			.frameOptions()
-			.sameOrigin()
-			.and()
-			.csrf()
-			.disable()
-				.authorizeRequests()
-				.antMatchers(WHITE_LIST)
-				.permitAll()
-				.antMatchers(ADMIN_ACCESS)
-				.hasAuthority("Admin")
-				.anyRequest()
-				.authenticated()
-				.and()
-				.formLogin()
-				.loginPage("/login")
-				.and()
-				.logout()
-				.invalidateHttpSession(true)
-				.clearAuthentication(true)
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-				.logoutSuccessUrl("/login?logout");
+		http.headers().frameOptions().sameOrigin().and().csrf().disable().authorizeRequests().antMatchers(WHITE_LIST)
+				.permitAll().antMatchers(ADMIN_ACCESS).hasAuthority("Admin").anyRequest().authenticated().and()
+				.formLogin().loginPage("/login").and().logout().invalidateHttpSession(true).clearAuthentication(true)
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login?logout");
 		return http.build();
 	}
-	
+
 }

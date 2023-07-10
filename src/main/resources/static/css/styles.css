@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@500&family=Comfortaa:wght@300&family=Dancing+Script&family=Fascinate&family=Fuzzy+Bubbles&family=Kanit:wght@200&family=Klee+One&family=Labrada:wght@200&family=Lato:wght@500&family=Lobster&family=Merriweather:wght@300&family=Nunito:wght@200&family=Pacifico&family=Poppins:wght@200&family=Roboto+Condensed:wght@300&family=Satisfy&family=Titillium+Web:wght@300&family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@500&family=Comfortaa:wght@300&family=Dancing+Script&family=Fascinate&family=Fuzzy+Bubbles&family=Kanit:wght@200&family=Klee+One&family=Labrada:wght@300&family=Lato:wght@500&family=Lobster&family=Merriweather:wght@200&family=Nunito:wght@200&family=Pacifico&family=Poppins:wght@200&family=Roboto+Condensed:wght@300&family=Satisfy&family=Titillium+Web:wght@300&family=Ubuntu:wght@300&display=swap');
 @import url('https://fonts.cdnfonts.com/css/bahnschrift');
  
 :root{
@@ -217,7 +217,7 @@ footer ul a:hover {
 	}
 	#welcome-msg, #todays-date{
 		top:18vh;
-		font-size: 18px;
+		font-size: 14px;
 	}	
 	.searchbar{
 		top:40vh;

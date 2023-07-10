@@ -32,22 +32,22 @@
 				
 				<div class="d-flex justify-content-between mb-2">
 					<span class="me-1">
-						<p class="fs-5 fw-normal mb-0">Email ID</p>
-						<input type="email" class="form-control rounded-0 fw-light" th:field="*{email}" id="email" placeholder="Enter your email Id" required>
+						<p class="fs-5 fw-normal mb-0">Email address</p>
+						<input type="email" class="form-control rounded-0 fw-light" th:field="*{email}" id="email" placeholder="eg. abcd@xyz.com" required>
 					</span>
 					<span>
 						<p class="fs-5 fw-normal mb-0">Password</p>
-						<input type="password" class="form-control rounded-0 fw-light" th:field="*{password}" id="password" placeholder="Enter your password" required>
+						<input type="password" class="form-control rounded-0 fw-light" th:field="*{password}" id="password" placeholder="eg. root123" required>
 					</span>
 				</div>
 				
-				<div class="d-flex justify-content-between mb-4">
+				<div class="d-flex justify-content-between mb-2">
 					<span class="me-1" style="width: 50%">
 						<p class="fs-5 fw-normal mb-0">Profile Picture</p>
 						<input type="file" class="form-control rounded-0" name="profilePic" id="inputImg">
 					</span>
 					<span style="width: 49%"> 
-						<p class="fs-5 fw-normal mb-0">Select Role</p>
+						<p class="fs-5 fw-normal mb-0">Choose Role</p>
 			            <select  class="form-select rounded-0 mb-1 fw-light" th:field="*{role}" id="role" required>
 			              <option value="User">User</option>
 			              <option value="Admin">Admin</option>
