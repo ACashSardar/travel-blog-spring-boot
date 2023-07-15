@@ -8,7 +8,7 @@
 	<div th:insert="~{base :: modal}"></div>
 	<div class="container-fluid p-4 body-section">
 		<div class="container my-3" style="max-width: 60rem;">
-			<p class="fw-bold fs-4 text-start">List of users</p>
+			<h4>List of users</h4>
 			<div class="overflow-auto" style="height: 200px">
 				<table class="table border table-hover">
 					<thead class="bg-light">
@@ -22,21 +22,21 @@
 					</thead>
 					<tbody th:each="user:${users}">
 						<tr>
-							<td>
-								<a th:href="@{'/posts/profile/'+${user.id}+'/page/0/#user-profile'}">
-									<img th:src="'/posts/image/'+${user.profilePicture}" class="rounded-circle" style="width: 2rem; height: 2rem">
-								</a>
-							</td>
+							<td><a
+								th:href="@{'/posts/profile/'+${user.id}+'/page/0/#user-profile'}">
+									<img th:src="'/posts/image/'+${user.profilePicture}"
+									class="rounded-circle" style="width: 2rem; height: 2rem">
+							</a></td>
 							<td th:text="${user.email}"></td>
 							<td th:text="${user.firstName}+' '+${user.lastName}"></td>
 							<td th:if="${user.role.equals('Admin')}" class="text-success">ADMIN</td>
 							<td th:if="${user.role.equals('User')}" class="text-primary">USER</td>
 							<td th:if="${user.role.equals('Admin')}">-</td>
 							<td th:if="${user.role.equals('User')}">
-								<button class="btn btn-sm btn-danger fw-bold rounded-0" data-bs-toggle="modal" data-bs-target="#exampleModal"
-									onclick="confirmDelete(this)" th:name="@{'/users/delete/'+${user.id}}">
-										Delete
-								</button>
+								<button class="btn btn-sm btn-danger fw-bold rounded-0"
+									data-bs-toggle="modal" data-bs-target="#exampleModal"
+									onclick="confirmDelete(this)"
+									th:name="@{'/users/delete/'+${user.id}}">Delete</button>
 							</td>
 						</tr>
 					</tbody>
@@ -49,12 +49,12 @@
 							<td></td>
 						</tr>
 					</tbody>
-				</div>
-			</table>
+					</div>
+				</table>
 			</div>
 			<br>
-			
-			<p class="fw-bold fs-4 text-start">List of categories</p>
+
+			<h4>List of categories</h4>
 			<div class="overflow-auto" style="height: 200px">
 				<table class="table border table-hover">
 					<thead class="bg-light">
@@ -63,20 +63,21 @@
 							<th scope="col">No. of posts</th>
 							<th scope="col">Action</th>
 						</tr>
-					</thead>				
+					</thead>
 					<tbody th:each="category:${categories}">
 						<tr>
 							<td th:text="${category.categoryName}"></td>
 							<td th:text="${category.posts.size()}"></td>
 							<td>
-								<button class="btn btn-sm btn-danger fw-bold rounded-0" data-bs-toggle="modal" data-bs-target="#exampleModal"
-									onclick="confirmDelete(this)" th:name="@{'/categories/delete/'+${category.id}}">
-									Delete
-								</button>
+								<button class="btn btn-sm btn-danger fw-bold rounded-0"
+									data-bs-toggle="modal" data-bs-target="#exampleModal"
+									onclick="confirmDelete(this)"
+									th:name="@{'/categories/delete/'+${category.id}}">
+									Delete</button>
 							</td>
 						</tr>
 					</tbody>
-					
+
 					<tbody th:if="${categories.size()==0}">
 						<tr>
 							<td class="text-primary">Category list is currently empty!</td>
@@ -87,8 +88,8 @@
 				</table>
 			</div>
 			<br>
-			
-			<p class="fw-bold fs-4 text-start">List of posts</p>
+
+			<h4>List of posts</h4>
 			<div class="overflow-auto" style="height: 200px">
 				<table class="table border table-hover">
 					<thead class="bg-light">
@@ -98,21 +99,23 @@
 							<th scope="col">Creator</th>
 							<th scope="col">Action</th>
 						</tr>
-					</thead>				
+					</thead>
 					<tbody th:each="post:${posts}">
 						<tr>
-							<td th:text="${post.title.length()<50 ? post.title : post.title.substring(0, 50)+'..'}"></td>
-							<td><img th:src="'/posts/image/'+${post.imageName}" class="rounded-1" style="width: 2rem; height: 2rem"></td>
+							<td
+								th:text="${post.title.length()<50 ? post.title : post.title.substring(0, 50)+'..'}"></td>
+							<td><img th:src="'/posts/image/'+${post.imageName}"
+								class="rounded-1" style="width: 2rem; height: 2rem"></td>
 							<td th:text="${post.user.firstName+' '+post.user.lastName}"></td>
 							<td>
-								<button class="btn btn-sm btn-danger fw-bold rounded-0" data-bs-toggle="modal" data-bs-target="#exampleModal"
-									onclick="confirmDelete(this)" th:name="@{'/posts/delete2/'+${post.id}}">
-									Delete
-								</button>
+								<button class="btn btn-sm btn-danger fw-bold rounded-0"
+									data-bs-toggle="modal" data-bs-target="#exampleModal"
+									onclick="confirmDelete(this)"
+									th:name="@{'/posts/delete2/'+${post.id}}">Delete</button>
 							</td>
 						</tr>
 					</tbody>
-					
+
 					<tbody th:if="${posts.size()==0}">
 						<tr>
 							<td class="text-primary">Post list is currently empty!</td>

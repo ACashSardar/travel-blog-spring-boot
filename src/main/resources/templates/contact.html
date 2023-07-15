@@ -7,47 +7,50 @@
 	<div th:insert="~{base :: navbar}"></div>
 
 	<div class="container-fluid p-4 body-section">
-		<div class="container-fluid d-flex justify-content-center mt-5">
-			<form class="border d-flex justify-content-center mb-5 rounded-0" style="width: 50rem">
-				<div class="d-flex justify-content-center flex-column p-3" style="width: 100%">
-					<h5>Let's get in touch</h5>
-					<p>In publishing and graphic design, Lorem ipsum is a
-						placeholder text commonly used to demonstrate the visual form of a
-						document or a typeface without relying on meaningful content.
-					</p>
-					<span class="p-3">
-						<p>Kolkata-700084, West Bengal, India</p>
-						<p>travelblog@gmail.com</p>
-						<p>123-456-789</p>
-					</span>
-					<h5>Connect with us</h5>
-					<span class="d-flex justify-content-span">
-						<a class="text-info text-decoration-none rounded fs-5 p-2 m-1" href="https://www.linkedin.com/in/akash-sardar-118858184/">
-							<i class="fa fa-linkedin"></i>
-						</a>
-						<a class="text-info text-decoration-none rounded fs-5 p-2 m-1" href="https://github.com/ACashSardar"> <i
-							class="fa fa-github"></i>
-						</a>
-						<a class="text-info text-decoration-none rounded fs-5 p-2 m-1" href="https://www.facebook.com/akash.sardar.1717"> <i
-							class="fa fa-facebook-square"></i>
-						</a>
-						<a class="text-info text-decoration-none rounded fs-5 p-2 m-1" href="https://www.instagram.com/lazer.kitty/"> <i
-							class="fa fa-instagram"></i>
-						</a>
-						<a class="text-info text-decoration-none rounded fs-5 p-2 m-1" href="https://twitter.com/AkashSa50571000"> <i
-							class="fa fa-twitter"></i>
-						</a>
-					</span>
-				</div>
-				<div class="d-flex justify-content-center flex-column p-3 border-start"  style="width: 100%">
-					<h5>Contact Us</h5>
-						<input type="text" class="form-control fw-light rounded-0 py-2 mb-1" name="name" id="name" placeholder="Your name" required>
-						<input type="email" class="form-control fw-light rounded-0 py-2 mb-1" name="email" id="email" placeholder="Email address" required>
-						<input type="text" class="form-control fw-light rounded-0 py-2 mb-1" name="phone" id="phone" placeholder="Phone number" required>
-						<textarea class="form-control rounded-0 mb-2" rows="5" cols="80" id="body" placeholder="Write your message" required></textarea>
-						<input type="submit"  class="rounded-0 fs-5 fw-bold" style="width:100%" value="Send">	
-					</div>
-				</div>
+		<div class="row m-5">
+			<div class="col-sm-12 col-md-8 d-flex justify-content-center flex-column p-3">
+				<h3>Let's get in touch</h3>
+				<p>
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+					Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+					when an unknown printer took a galley of type and scrambled it to make a type
+					specimen book. It has survived not only five centuries, but also the leap into 
+					electronic typesetting, remaining essentially unchanged. It was popularised in 
+					the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+					and more recently with desktop publishing software like Aldus PageMaker including 
+					versions of Lorem Ipsum
+				</p>
+				<span class="p-2">
+					<p>Kolkata-700084, West Bengal, India</p>
+					<p>travelblog@gmail.com</p>
+					<p>123-456-789</p>
+				</span>
+				<h5>Connect with us</h5>
+				<span class="d-flex justify-content-span">
+					<a class="text-info text-decoration-none rounded fs-5 p-2 m-1" href="https://www.linkedin.com/in/akash-sardar-118858184/">
+						<i class="fa fa-linkedin"></i>
+					</a>
+					<a class="text-info text-decoration-none rounded fs-5 p-2 m-1" href="https://github.com/ACashSardar"> <i
+						class="fa fa-github"></i>
+					</a>
+					<a class="text-info text-decoration-none rounded fs-5 p-2 m-1" href="https://www.facebook.com/akash.sardar.1717"> <i
+						class="fa fa-facebook-square"></i>
+					</a>
+					<a class="text-info text-decoration-none rounded fs-5 p-2 m-1" href="https://www.instagram.com/lazer.kitty/"> <i
+						class="fa fa-instagram"></i>
+					</a>
+					<a class="text-info text-decoration-none rounded fs-5 p-2 m-1" href="https://twitter.com/AkashSa50571000"> <i
+						class="fa fa-twitter"></i>
+					</a>
+				</span>
+			</div>
+			<form class="col-sm-12 col-md-4 d-flex flex-column justify-content-center rounded-0">
+				<h3>Contact Us</h3>
+				<input type="text" class="form-control fw-light rounded-0 py-2 mb-1" name="name" id="name" placeholder="Your name" required>
+				<input type="email" class="form-control fw-light rounded-0 py-2 mb-1" name="email" id="email" placeholder="Email address" required>
+				<input type="text" class="form-control fw-light rounded-0 py-2 mb-1" name="phone" id="phone" placeholder="Phone number" required>
+				<textarea class="form-control rounded-0 mb-2" rows="5" cols="80" id="body" placeholder="Write your message" required></textarea>
+				<button type="submit" class="btn btn-info text-light fs-6 fw-bold rounded-0 py-2" style="width:100%">SEND</button>	
 			</form>
 		</div>
 	</div>

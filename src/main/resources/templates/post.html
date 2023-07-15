@@ -12,18 +12,18 @@
 				<div class="d-flex justify-content-between">
 					<span class="d-flex justify-content-center">
 						<a th:href="@{'/posts/profile/'+${post.user.id}+'/page/0/#user-profile'}">
-							<img alt="" th:src="'/posts/image/'+${post.user.profilePicture}" style="width: 35px; height: 35px; border-radius: 50%">
+							<img alt="" th:src="'/posts/image/'+${post.user.profilePicture}" style="width: 38px; height: 38px; border-radius: 50%">
 						</a>
 						<span class="d-flex flex-column ms-2">
-							<b th:text="${post.user.firstName}+' '+${post.user.lastName}"></b>
-							<label th:text="${post.user.email}" style="font-size: 11px"></label>
+							<b class="text-info" th:text="${post.user.firstName}+' '+${post.user.lastName}"></b>
+							<label th:text="${post.user.email}" style="font-size: 12px; letter-spacing: 1px"></label>
 						</span>
 					</span>
 					<span>
-						<b class="fs-6" th:text="${#temporals.format(post.createdAt, 'dd-MMM-yyyy')}"></b>
+						<b class="text-info fs-6" th:text="${#temporals.format(post.createdAt, 'dd-MMM-yyyy')}"></b>
 					</span>
 				</div>
-				<br>
+				<hr>
 				<h3 class="card-title" th:text="${post.title}"></h3>
 				<p class="fw-light" th:text="${post.shortDesc}"></p>
 				<img th:src="'/posts/image/'+${post.imageName}" class="my-3" style="width: 100%;">
@@ -61,27 +61,24 @@
 			</div>
 		</div>
 
-		<div th:if="${editable==true}"
-			class="card my-2 border p-3 mx-auto"
-			style="max-width: 50rem">
+		<div th:if="${editable==true}" class="card my-2 border p-3 mx-auto rounded-0" style="max-width: 50rem">
 			<form th:action="@{'/posts/update/'+${post.id}}" method="post">
 				<div class="card-body">
-					<p class="fw-bold fs-4 mb-0">Edit Title</p>
+					<h4>Edit Title</h4>
 					<textarea th:if="${editable==true}"
 						class="form-control rounded-0 fw-light mb-3" rows="3" cols="40"
 						name="title" th:text="${post.title}" required></textarea>
-					<p class="fw-bold fs-4 mb-0">Edit Description</p>
+					<h4>Edit Description</h4>
 					<textarea th:if="${editable==true}"
 						class="form-control rounded-0 fw-light" rows="4" cols="40"
 						name="shortDesc" th:text="${post.shortDesc}" required></textarea>
 					<img th:src="'/posts/image/'+${post.imageName}" class="my-3"
 						style="width: 100%;">
-					<p class="fw-bold fs-4 mb-0">Edit Body</p>
+					<h4>Edit Body</h4>
 					<textarea th:if="${editable==true}"
-						class="form-control rounded-0 fw-light" rows="10" cols="40"
+						class="form-control rounded-0 fw-light mb-3" rows="10" cols="40"
 						name="body" th:text="${post.body}" required></textarea>
-					<br> 
-					<input class="rounded-0 fw-bold mt-0" type="submit" th:if="${editable==true}" style="width: 100%" value="Save and Update ✅" />
+					<button type="submit" th:if="${editable==true}" class="btn btn-info text-light fw-bold rounded-0 py-2 px-3">Save and Update</button>
 				</div>
 			</form>
 		</div>

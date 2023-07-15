@@ -24,7 +24,7 @@ p,label,.searchbar{
 }
 h2,h3,h4,h5,h6,li,a{
 	font-family: var(--primary-font);
-	color: black;
+	color: var(--main-accent-color);;
 }
 
 .searchbar{
@@ -141,8 +141,6 @@ input[type="submit"]{
 	background:var(--main-accent-color);
 	color:white;
 	padding:8px;
-	font-family:var(--primary-font);
-	border-radius: 5px;
 	border:0;
 }
 
