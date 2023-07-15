@@ -29,7 +29,7 @@ h2,h3,h4,h5,h6,li,a{
 
 .searchbar{
 	position:absolute;
-	top:65vh;
+	top:58vh;
 	width:100%;
 	height:10vh;
 	background: rgb(0,0,0,0);
@@ -47,13 +47,12 @@ h2,h3,h4,h5,h6,li,a{
 
 #welcome-msg, #todays-date{
 	position:absolute;
-	top:18vh;
+	top:16vh;
 	font-size: 20px;
 	font-weight: bold;
 	color: white;
-	background: rgb(0, 0, 0, 0.4);
+	background: rgb(0, 0, 0, 0.1);
 	padding: 5px 20px;
-	border-radius: 20px;
 	letter-spacing: 1px;
 	font-family: var(--primary-font);
 }
@@ -85,7 +84,9 @@ ul li label{
 }
 
 .navbar{
-	background: white;
+/*
+	background: linear-gradient(to bottom, lavenderblush, lavender);
+*/	background: rgb(255, 255, 255, 0.95);
 	border-bottom: 1px solid lavender;
 }
 

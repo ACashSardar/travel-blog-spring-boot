@@ -7,14 +7,11 @@ let cancelBtn = document.getElementById("cancel-comment-btn")
 let homepageImage = document.getElementById("homepage-image")
 let todaysDate=document.getElementById("todays-date")
 
-/*
 if (homepageImage != null) {
 	const imageArray = [
-		"https://www.vayaadventures.com/wp-content/uploads/Headers4-1.jpg",
-		"https://idsb.tmgrup.com.tr/ly/uploads/images/2020/08/07/50624.jpg",
 		"https://www.thetimes.co.uk/travel/wp-content/uploads/sites/6/2022/01/USE_Pagoda-overlooking-Mount-Fuji-Japan_Credit_GettyImages-520571022.jpg",
-		"https://media.cntraveller.com/photos/611bef92aac234341a89477f/16:9/w_2560%2Cc_limit/gettyimages-1278257702.jpg",
-		"https://images.prismic.io/indiahike/22d80dbe-d1a1-47e2-b6ff-6065ec3f5143_August+-+Kashmir+great+lakes_Indiahikes_Rajshree+Sarda_trailwithtrekkers_+%281%29.jpg?auto=compress,format&rect=0,139,1600,600&w=1600&h=600"
+		"https://img.freepik.com/premium-photo/view-paris-from-arc-de-triomphe-paris-france_501530-4742.jpg?w=2000",
+		"https://media.cntraveler.com/photos/5b9aab2ee1b6e96e7b9f4e11/16:9/w_2560%2Cc_limit/Switzerland_Bernina_GettyImages-626077868.jpg",
 	]
 
 	let i = 0;
@@ -25,7 +22,6 @@ if (homepageImage != null) {
 		homepageImage.src = imageArray[i]
 	}, 2500)
 }
-*/
 
 if(todaysDate!==null){
 	let date = new Date().toUTCString();
