@@ -12,10 +12,10 @@
 	</div>
 	<div class="container-fluid p-4 body-section">			
 		<div class="container-fluid d-flex justify-content-center mt-5">
-			<form action="#" th:action="@{/login}" method="post" class="border p-3 mb-5 rounded-0" style="width:25rem">
-			 <h4>Log Into Existing Account</h4>
+			<form action="#" th:action="@{/login}" method="post" class="bg-light border p-3 mb-5 rounded-0" style="width:25rem">
+			 <p class="fs-4">Log Into Existing Account</p>
 			 <p th:if="${param.error}" class="fs-6 fw-bold text-danger">Invalid credentials. Try again.</p>
-			 <br>
+			 <hr>
 				<div class="mb-2">
 					<label class="fs-6 fw-normal p-0">Email address</label>
 					<input type="email" class="form-control fw-light rounded-0 py-2" name="username" id="email" required>

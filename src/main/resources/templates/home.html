@@ -7,7 +7,7 @@
 	<div th:insert="~{base :: modal}"></div>
 
 	<div class="container-fluid mt-2 p-0">
-		<img id="homepage-image" alt="" src="https://media.cntraveler.com/photos/5b9aab2ee1b6e96e7b9f4e11/16:9/w_2560%2Cc_limit/Switzerland_Bernina_GettyImages-626077868.jpg">
+		<img id="homepage-image" alt="" src="https://www.clemenceauvoyages.com/wp-content/uploads/2019/09/Suisse-trains-de-l%C3%A9gendes-d%C3%A9part-Perpignan-Cl%C3%A9menceau-voyages-2020-6.jpg">
 		<span sec:authorize="isAuthenticated()" id="welcome-msg" th:text="${'Welcome, '+#authentication.getPrincipal().getFullname()}"></span>
 		<span id="todays-date"></span>
 		<div class="searchbar">

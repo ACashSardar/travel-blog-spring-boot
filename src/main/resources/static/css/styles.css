@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@500&family=Comfortaa:wght@300&family=Dancing+Script&family=Fascinate&family=Fuzzy+Bubbles&family=Kanit:wght@200&family=Klee+One&family=Labrada:wght@300&family=Lato:wght@500&family=Lobster&family=Merriweather:wght@200&family=Nunito:wght@200&family=Pacifico&family=Poppins:wght@200&family=Roboto+Condensed:wght@300&family=Satisfy&family=Titillium+Web:wght@300&family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@500&family=Comfortaa:wght@300&family=Dancing+Script&family=Fascinate&family=Fuzzy+Bubbles&family=Kanit:wght@200&family=Klee+One&family=Labrada:wght@300&family=Lato:wght@500&family=Lobster&family=Merriweather:wght@200&family=Nunito:wght@300&family=Pacifico&family=Poppins:wght@300&family=Roboto+Condensed:wght@300&family=Satisfy&family=Titillium+Web:wght@300&family=Ubuntu:wght@300&display=swap');
 @import url('https://fonts.cdnfonts.com/css/bahnschrift');
  
 :root{
@@ -8,8 +8,8 @@
 	--text-color:#333;
 	--nav-fg-color: #333;
 	--nav-text-shadow:cyan;
-	--primary-font: Ubuntu;
-	--secondary-font: Ubuntu;
+	--primary-font: Nunito;
+	--secondary-font: Nunito;
 }
 
 .body-section{
@@ -79,20 +79,18 @@ ul li label{
 
 #homepage-image{
 	width: 100%; 
-	height: 88vh;
-	background-size: cover;
+	height: 89vh;
+
 }
 
 .navbar{
-/*
-	background: linear-gradient(to bottom, lavenderblush, lavender);
-*/	background: rgb(255, 255, 255, 0.95);
+    background: white;
 	border-bottom: 1px solid lavender;
 }
 
 .nav-item a{
 	color: #333;
-	font-size: 15px;
+	font-size: 16px;
 	font-weight: normal;
 	letter-spacing: 1px;
 }

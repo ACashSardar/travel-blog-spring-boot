@@ -9,10 +9,10 @@
 	<div class="container-fluid p-4 body-section">	
 		<div class="container-fluid d-flex justify-content-center my-3">	
 			<form action="#" th:action="@{/register}" th:object="${user}" method="post" enctype="multipart/form-data"
-				 class="border p-3 mb-5 rounded-0"  style="width:27rem">
-				<h4>Create New Account</h4>	
+				 class="bg-light border p-3 mb-5 rounded-0"  style="width:27rem">
+				<p class="fs-4">Create New Account</p>	
 				<p th:if="${param.error}" class="fs-6 fw-bold text-danger">Someone with this email address already exists!</p>
-				<br>
+				<hr>
 				<div class="m-0 d-flex justify-content-between">
 					<span>
 						<p class="fs-6 fw-normal mb-0">First Name</p>

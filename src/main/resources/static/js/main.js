@@ -10,8 +10,8 @@ let todaysDate=document.getElementById("todays-date")
 if (homepageImage != null) {
 	const imageArray = [
 		"https://www.thetimes.co.uk/travel/wp-content/uploads/sites/6/2022/01/USE_Pagoda-overlooking-Mount-Fuji-Japan_Credit_GettyImages-520571022.jpg",
-		"https://img.freepik.com/premium-photo/view-paris-from-arc-de-triomphe-paris-france_501530-4742.jpg?w=2000",
-		"https://media.cntraveler.com/photos/5b9aab2ee1b6e96e7b9f4e11/16:9/w_2560%2Cc_limit/Switzerland_Bernina_GettyImages-626077868.jpg",
+		"https://media.cntraveler.com/photos/5d1cd1e7ec86ec0008752a9a/16:9/w_2580,c_limit/MarasusaTropea,-Calabria_GettyImages-547423148.jpg",
+		"https://www.clemenceauvoyages.com/wp-content/uploads/2019/09/Suisse-trains-de-l%C3%A9gendes-d%C3%A9part-Perpignan-Cl%C3%A9menceau-voyages-2020-6.jpg",
 	]
 
 	let i = 0;

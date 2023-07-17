@@ -8,7 +8,7 @@
 	
 	<div class="container-fluid p-4 body-section">
 		<div class="container-fluid d-flex justify-content-center">		
-			<form action="#" th:action="@{/posts/new}" th:object="${post}" method="post" enctype="multipart/form-data" class="border p-3 my-2">
+			<form action="#" th:action="@{/posts/new}" th:object="${post}" method="post" enctype="multipart/form-data" class="bg-light border p-3 my-2">
 				<p class="fs-4">Write a new post</p>
 				<input type="hidden" th:field="*{user}" >
 				<input type="hidden" th:field="*{createdAt}">
