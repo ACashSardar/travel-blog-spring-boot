@@ -177,7 +177,7 @@ input[type="submit"]:hover{
 }
 
 footer {
-  background: white;
+  background: #333;
   position: relative;
   text-align: center;
   padding: 20px 5px;
@@ -185,7 +185,7 @@ footer {
 }
 
 footer label {
-  color: black;
+  color: white;
   font-family: var(--primary-font);
 }
 footer ul {
@@ -196,7 +196,7 @@ footer ul {
 
 footer ul a {
   text-decoration: none;
-  color: #333;
+  color: white;
   margin: 0px 10px;
   transition: 0.2s;
   font-size: 18px;
